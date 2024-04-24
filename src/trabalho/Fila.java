@@ -1,23 +1,20 @@
 package trabalho;
 
 public class Fila {
-	private ListaClientes clientes;
+	private Cliente cliente;
 	private Fila prox;
 	
-	public Fila(ListaClientes clientes) {
-		setClientes(clientes);
+	public Fila(Cliente cliente) {
+		setCliente(cliente);
 	}
 
-
-	public ListaClientes getClientes() {
-		return clientes;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setClientes(ListaClientes clientes) {
-		this.clientes = clientes;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-
-
 
 	public Fila getProx() {
 		return prox;
@@ -25,7 +22,4 @@ public class Fila {
 	public void setProx(Fila prox) {
 		this.prox = prox;
 	}
-	
-	
-	
 }

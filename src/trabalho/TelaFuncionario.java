@@ -7,7 +7,9 @@ public class TelaFuncionario {
 		Scanner input = new Scanner(System.in);
 		boolean sistema = true;
 		while(sistema) {
-			String nome,sobrenome,cpf,cargo;
+			String nome,sobrenome,cpf,nomeCargo;
+			Funcionario funcionario;
+			int cargo;
 			System.out.println("\n");
 			System.out.println("1 - Cadastrar Funcionario");
 			System.out.println("2 - Deletar Funcionario");
@@ -23,9 +25,14 @@ public class TelaFuncionario {
 					nome = input.next();
 					System.out.println("Sobrenome do Funcionario:");
 					sobrenome = input.next();
-					System.out.println("Cargo do Funcionario:");
-					cargo = input.next();
-					funcionarios.cadastrar(nome, sobrenome, cpf, cargo);
+					System.out.println("Digite a Opção de cargo");
+					System.out.println("1 - Garcon");
+					System.out.println("2 - Cozinheiro");
+					cargo = input.nextInt();
+					if(cargo == 1) 
+						funcionarios.cadastrar(nome, sobrenome, cpf, "Garcon");
+					else if(cargo == 2)
+						funcionarios.cadastrar(nome, sobrenome, cpf, "Cozinheiro");
 					break;
 				case 2 : 
 					System.out.println("CPF do Funcionario: ");
@@ -36,8 +43,8 @@ public class TelaFuncionario {
 					System.out.println("CPF do Funcionario: ");
 					cpf = input.next();
 					System.out.println("Cargo do Funcionario: ");
-					cargo = input.next();
-					Funcionario funcionario = funcionarios.consultar(cpf, cargo);
+					nomeCargo = input.next();
+					funcionario = funcionarios.consultar(cpf, nomeCargo);
 					System.out.println("Dados do Funcionario");
 					System.out.println("--------------------");
 					System.out.println("Nome: "+funcionario.getNome());

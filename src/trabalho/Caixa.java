@@ -4,7 +4,6 @@ public class Caixa {
 	private Funcionario funcionario;
 	private ListaClientes clientes;
 	private ListaPedidos pedidos;
-	private double valorDaConta;
 	private Caixa prox;
 	
 	public Caixa(ListaClientes clientes) {
@@ -32,14 +31,6 @@ public class Caixa {
 
 	public void setClientes(ListaClientes clientes) {
 		this.clientes = clientes;
-	}
-
-	public double getValorDaConta() {
-		return valorDaConta;
-	}
-
-	public void setValorDaConta(double valorDaConta) {
-		this.valorDaConta = valorDaConta;
 	}
 
 	public Caixa getProx() {

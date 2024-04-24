@@ -4,13 +4,15 @@ public class Atendimento {
 	private int codigoDeAtimento;
 	private Funcionario cozinheiro;
 	private Funcionario garcon;
-	private ListaPedidos pedidos;
+	private Pedido pedido;
+	private Cliente cliente;
 	private Atendimento prox;
-	
-	public Atendimento(Funcionario cozinheiro, Funcionario garcon, ListaPedidos pedidos) {
+
+	public Atendimento(Funcionario cozinheiro, Funcionario garcon, Pedido pedido,Cliente cliente) {
 		setCozinheiro(cozinheiro);
 		setGarcon(garcon);
-		setPedidos(pedidos);
+		setPedido(pedido);
+		setCliente(cliente);
 	}
 	
 	public Funcionario getCozinheiro() {
@@ -25,11 +27,21 @@ public class Atendimento {
 	public void setGarcon(Funcionario garcon) {
 		this.garcon = garcon;
 	}
-	public ListaPedidos getPedidos() {
-		return pedidos;
+
+	public Pedido getPedido() {
+		return pedido;
 	}
-	public void setPedidos(ListaPedidos pedidos) {
-		this.pedidos = pedidos;
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public Atendimento getProx() {
@@ -47,6 +59,4 @@ public class Atendimento {
 	public void setCodigoDeAtimento(int codigoDeAtimento) {
 		this.codigoDeAtimento = codigoDeAtimento;
 	}
-	
-	
 }

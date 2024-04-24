@@ -3,7 +3,7 @@ package trabalho;
 import java.util.Scanner;
 
 public class TelaMesa {
-	public static void TelaMesa(ListaMesas mesas, ListaClientes clientes,ListaCaixa caixa ) {
+	public static void TelaMesa(ListaMesas mesas, ListaClientes clientes,ListaCaixa caixa,ListaFila fila) {
 		Scanner input = new Scanner(System.in);
 		boolean sistema = true;
 		while(sistema) {
@@ -35,6 +35,7 @@ public class TelaMesa {
 					while(ativoCliente) {		
 						System.out.println("CPF do Cliente: ");
 						String cpf = input.next();
+						fila.deletarClientes(cpf);
 						Cliente cliente = clientes.consultar(cpf);
 						clientesMesa.cadastrar(cliente.getNome(), cliente.getSobrenome(), cliente.getCpf(), cliente.getTelefone());
 						System.out.println("Continuar cadastrar cliente na mesa");

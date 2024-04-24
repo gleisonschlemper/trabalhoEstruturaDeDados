@@ -11,6 +11,7 @@ public class Main {
 		ListaPedidos pedidos = new ListaPedidos();
 		ListaCaixa caixa = new ListaCaixa();
 		ListaFila fila = new ListaFila();
+		ListaAtendimento atendimentos = new ListaAtendimento();
 		
 		boolean sistema = true;
 		while(sistema) {
@@ -21,29 +22,33 @@ public class Main {
 			System.out.println("3 - Gerenciar Mesas");
 			System.out.println("4 - Gerenciar Pedidos");
 			System.out.println("5 - Gerenciar Caixa");
-			System.out.println("6 - Gerenciar Atedimento");
-			System.out.println("7 - Fechar programa");
+			System.out.println("6 - Gerenciar Fila");
+			System.out.println("7 - Gerenciar Atedimento aos clientes");
+			System.out.println("8 - Fechar programa");
 			int escolha = input.nextInt();
 			switch (escolha) {
 			case 1: 
-				TelaCliente.TelaCliente(clientes);
+				TelaCliente.TelaCliente(clientes,fila);
 				break;
 			case 2: 
 				TelaFuncionario.TelaFuncionario(funcionarios);
 				break;
 			case 3:
-				TelaMesa.TelaMesa(mesas,clientes,caixa);
+				TelaMesa.TelaMesa(mesas,clientes,caixa,fila);
 				break;
 			case 4: 
 				TelaPedido.TelaPedido(pedidos,clientes,mesas);
 				break;
 			case 5 : 
-				
+				TelaCaixa.TelaCaixa(caixa,pedidos,atendimentos);
 				break;
 			case 6 : 
-				
+				TelaFila.TelaFila(fila);
 				break;
-			case 7 :
+			case 7 : 
+				TelaAtendimento.TelaAtendimento(funcionarios,clientes,atendimentos,pedidos);
+				break;
+			case 8 :
 				sistema = false;
 				break;	
 		}

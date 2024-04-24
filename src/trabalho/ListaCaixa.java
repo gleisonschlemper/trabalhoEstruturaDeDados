@@ -38,12 +38,16 @@ public class ListaCaixa {
 			lista+=aux.getClientes().mostrar();
 			aux = aux.getProx();
 		}
-		
 		return lista;
 	}
 	
-	public double valorDaConta(Pedido pedido) {
-		return pedido.getProdutos().valorTotal();	
+	public boolean pagarConta(double valorConta, double pagarConta) {
+		if(pagarConta < valorConta) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	public void quantidadeDeClienteNoCaixa() {
@@ -68,5 +72,10 @@ public class ListaCaixa {
 			aux.getClientes().deletarClientes(clienteCPF);
 			aux = aux.getProx();
 		}
+	}
+	
+	public String gerarNotaFiscal(Pedido pedido) {
+		return "Produtos comprados "+pedido.getProdutos().mostrar()+"\n"+
+			   "Preco total: "+pedido.getProdutos().valorTotal();
 	}
 }

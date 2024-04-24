@@ -11,18 +11,18 @@ public class ListaAtendimento {
 		return inicio;
 	}
 	
-	public void cadastrarInicio(Funcionario cozinheiro, Funcionario garcon, ListaPedidos pedidos) {
-		Atendimento novoAtedimento = new Atendimento(cozinheiro,garcon,pedidos);
+	public void cadastrarInicio(Funcionario cozinheiro, Funcionario garcon, Pedido pedido,Cliente cliente) {
+		Atendimento novoAtedimento = new Atendimento(cozinheiro,garcon,pedido,cliente);
 		novoAtedimento.setProx(inicio);
 		inicio = novoAtedimento;
 	}
 	
-	public void cadastrarFinal(Funcionario cozinheiro, Funcionario garcon, ListaPedidos pedidos) {
+	public void cadastrarFinal(Funcionario cozinheiro, Funcionario garcon, Pedido pedido,Cliente cliente) {
 		if(vazia()) {
-			cadastrarInicio(cozinheiro,garcon,pedidos);
+			cadastrarInicio(cozinheiro,garcon,pedido,cliente);
 			return;
 		}	
-		Atendimento novoAtedimento = new Atendimento(cozinheiro,garcon,pedidos);
+		Atendimento novoAtedimento = new Atendimento(cozinheiro,garcon,pedido,cliente);
 		Atendimento aux = inicio;
 		while(aux.getProx() != null) {
 			aux = aux.getProx();
@@ -33,13 +33,13 @@ public class ListaAtendimento {
 	public String mostrar() {
 		
 		if(vazia()) {
-			return "Não tem clientes cadastrado";
+			return "Não tem Funcionario cadastrado";
 		}
 		
 		String lista = "";
 		Atendimento aux = inicio;
 		while(aux != null) {
-			lista+=aux.getCozinheiro()+" "+aux.getGarcon()+" "+aux.getPedidos()+"\n";
+			lista+="Cozinheiro: "+aux.getCozinheiro().getNome()+"\nGarcon: "+aux.getGarcon().getNome()+" "+aux.getGarcon().getSobrenome()+"\nProdutos comprados: "+aux.getPedido().getProdutos().mostrar()+"\n";
 			aux = aux.getProx();
 		}
 		

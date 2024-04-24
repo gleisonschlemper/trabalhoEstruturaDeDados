@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class TelaCliente {
 	
-	public static void TelaCliente(ListaClientes clientes) {
+	public static void TelaCliente(ListaClientes clientes,ListaFila fila) {
 		Scanner input = new Scanner(System.in);
 		boolean sistema = true;
 		while(sistema) {
 			String nome,sobrenome,cpf,telefone;
+			Cliente cliente;
 			System.out.println("");
 			System.out.println("1 - Cadastrar cliente");
 			System.out.println("2 - Deletar Cliente");
@@ -20,7 +21,7 @@ public class TelaCliente {
 			switch (escolha) {
 				case 1 : 
 					System.out.println("CPF do Cliente:");
-					cpf = input.next();
+					cpf =input.next();
 					System.out.println("Nome do Cliente:");
 					nome = input.next();
 					System.out.println("Sobrenome do Cliente:");
@@ -28,6 +29,8 @@ public class TelaCliente {
 					System.out.println("Telefone do Cliente:");
 					telefone = input.next();
 					clientes.cadastrar(cpf,nome,sobrenome,telefone);
+					cliente = clientes.consultar(cpf);
+					fila.cadastrar(cliente);
 					break;
 				case 2 : 
 					System.out.println("CPF do Cliente:");
@@ -37,7 +40,7 @@ public class TelaCliente {
 				case 3 : 
 					System.out.println("CPF do Cliente:");
 					cpf = input.next();
-					Cliente cliente = clientes.consultar(cpf);
+					cliente = clientes.consultar(cpf);
 					System.out.println("Dados do Cliente:");
 					System.out.println("------------------");
 					System.out.println("Nome: "+cliente.getNome());
