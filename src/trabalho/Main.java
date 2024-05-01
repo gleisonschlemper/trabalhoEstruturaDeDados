@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner input = new Scanner(System.in);
+		/*Scanner input = new Scanner(System.in);
 		ListaClientes clientes = new ListaClientes();
 		ListaFuncionarios funcionarios = new ListaFuncionarios();
 		ListaMesas mesas = new ListaMesas();
@@ -12,6 +12,7 @@ public class Main {
 		ListaCaixa caixa = new ListaCaixa();
 		ListaFila fila = new ListaFila();
 		ListaAtendimento atendimentos = new ListaAtendimento();
+		ListaFinanceiro financeiro = new ListaFinanceiro();
 		
 		boolean sistema = true;
 		while(sistema) {
@@ -40,7 +41,7 @@ public class Main {
 				TelaPedido.TelaPedido(pedidos,clientes,mesas);
 				break;
 			case 5 : 
-				TelaCaixa.TelaCaixa(caixa,pedidos,atendimentos);
+				TelaCaixa.TelaCaixa(caixa,pedidos,atendimentos,financeiro);
 				break;
 			case 6 : 
 				TelaFila.TelaFila(fila);
@@ -52,24 +53,20 @@ public class Main {
 				sistema = false;
 				break;	
 		}
-	}
+	}*/
+		ListaClientes clientes = new ListaClientes();
+		ListaFuncionarios funcionarios = new ListaFuncionarios();
 		
-		/*//clientes.cadastrarInicio("1234567","Gleison", "silva", "(47) 89073723");
-		//clientes.cadastrarFinal("555","Maria", "Schlemper", "(47) 89084723");
-		System.out.println(clientes.mostrar());
-		System.out.println(clientes.atualizarCadastro("555","carlos","schlemper","890"));
-		//clientes.deletarClientes("555");
-		System.out.println(clientes.mostrar());
-		System.out.println(clientes.consultar("1234567"));
-		
-		
-		ListaProdutos produtos = new ListaProdutos();
-		produtos.cadastrarInicio("Pastel", 5.5);
-		produtos.cadastrarInicio("Bolinho", 5.5);
-		
-		Cliente cliente = clientes.consultar("1234567");
-		pedidos.cadastrar(1, cliente, produtos);
-		
+		clientes.cadastrar(null, null, null, null);
+		funcionarios.cadastrar("Gleison", "Schlemper", "555", "Cozinheiro");
+		funcionarios.cadastrar("Pedro", "silva", "444", "garcon");
+		funcionarios.deletar("555");
+		System.out.println("");
+		funcionarios.deletar("555");
+		System.out.println(funcionarios.mostrar());
+		Funcionario funcionario = funcionarios.consultar("444", "garcon");
+		System.out.println("Funcionario consultado: "+funcionario.getNome()+" "+funcionario.getSobrenome());
+		/*
 		ListaProdutos produtos2 = new ListaProdutos();
 		produtos2.cadastrarInicio("Pastel", 5.5);
 

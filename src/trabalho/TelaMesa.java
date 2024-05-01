@@ -16,7 +16,8 @@ public class TelaMesa {
 			System.out.println("4 - Alterar capacidade da mesa");
 			System.out.println("5 - Cadastrar mesa");
 			System.out.println("6 - Liberar Mesa");
-			System.out.println("7 - Sair");
+			System.out.println("7 - Ver Quantidade de cliente almocando");
+			System.out.println("8 - Sair");
 			int escolha = input.nextInt();
 			switch (escolha) {
 				case 1 : 
@@ -72,6 +73,9 @@ public class TelaMesa {
 					mesas.liberarMesa(numeroDaMesa,caixa);
 					break;
 				case 7: 
+					mesas.quantidadeDeClienteAlmocando();
+					break;
+				case 8: 
 					sistema = false;
 					break;
 			}

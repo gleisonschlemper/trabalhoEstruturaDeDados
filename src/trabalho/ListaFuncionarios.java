@@ -55,12 +55,14 @@ public class ListaFuncionarios {
 		if(vazia()) return;
 		if(inicio.getCpf().equalsIgnoreCase(cpf)) {
 			inicio = inicio.getProx();
+			System.out.println("Funcionario deletado com sucesso!");
 			return;
 		}
 		Funcionario aux = inicio;
 		while(aux.getProx() != null) {
 			if(aux.getProx().getCpf().equalsIgnoreCase(cpf)) {
 				aux.setProx(aux.getProx().getProx());
+				System.out.println("Funcionario deletado com sucesso!");
 				return;
 			}
 		}

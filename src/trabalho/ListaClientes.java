@@ -75,12 +75,14 @@ public class ListaClientes {
 		if(vazia()) return;
 		if(inicio.getCpf().equalsIgnoreCase(cpf)) {
 			inicio = inicio.getProx();
+			System.out.println("Cliente deletado com sucesso!");
 			return;
 		}
 		Cliente aux = inicio;
 		while(aux.getProx() != null) {
 			if(aux.getProx().getCpf().equalsIgnoreCase(cpf)) {
 				aux.setProx(aux.getProx().getProx());
+				System.out.println("Cliente deletado com sucesso!");
 				return;
 			}
 		}

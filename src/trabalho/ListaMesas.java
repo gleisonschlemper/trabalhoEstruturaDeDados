@@ -113,4 +113,16 @@ public class ListaMesas {
 			aux = aux.getProx();
 		}
 	}
+	
+	public void quantidadeDeClienteAlmocando() {
+		int quantidade = 0;
+		Mesa aux = inicio;
+		while(aux != null) {
+			if(aux.getOcupado()) {
+				quantidade++;
+			}
+			aux = aux.getProx();
+		}
+		System.out.println("Quantidadde de cliente almocando: "+quantidade);
+	}
 }

@@ -3,7 +3,7 @@ package trabalho;
 import java.util.Scanner;
 
 public class TelaCaixa {
-	public static void TelaCaixa(ListaCaixa caixa, ListaPedidos pedidos, ListaAtendimento atendimento) {
+	public static void TelaCaixa(ListaCaixa caixa, ListaPedidos pedidos, ListaAtendimento atendimento, ListaFinanceiro financeiro) {
 		Scanner input = new Scanner(System.in);
 		Cliente cliente;
 		int codigoPedido;
@@ -14,7 +14,8 @@ public class TelaCaixa {
 			System.out.println("1 - Mostrar cliente no caixa");
 			System.out.println("2 - Mostrar quantidade de clientes no caixa");
 			System.out.println("3 - Atender cliente");
-			System.out.println("4 - Sair ");
+			System.out.println("4 - Mostrar total de cliente atendidos");
+			System.out.println("5 - Sair ");
 			int escolha = input.nextInt();
 			switch (escolha) {
 				case 1 : 
@@ -30,6 +31,7 @@ public class TelaCaixa {
 					System.out.println("Digite código do Pedido: ");
 					codigoPedido = input.nextInt();
 					Pedido pedidoCliente = pedidos.consultar(codigoPedido);
+					financeiro.cadastrar(clienteAtendido, pedidoCliente);
 					valorConta = pedidoCliente.getProdutos().valorTotal();
 					System.out.println("Valor da conta: "+valorConta);
 					do {
@@ -42,9 +44,11 @@ public class TelaCaixa {
 					System.out.println();
 					caixa.removerClienteDoCaixa(clienteAtendido.getCpf());
 					
-					
 					break;
-				case 4 : 	
+				case 4 : 
+					financeiro.mostrar();
+					break;
+				case 5 : 	
 					sistema = false;
 					break;
 					
